@@ -1,1 +1,0 @@
-sll.indexOf(100)
