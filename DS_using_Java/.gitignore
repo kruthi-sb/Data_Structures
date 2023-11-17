@@ -1,2 +1,3 @@
 # Ignore generated .class files
 *.class
+*.docx
