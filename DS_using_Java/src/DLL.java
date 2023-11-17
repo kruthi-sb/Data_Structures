@@ -20,6 +20,12 @@ public class DLL
     // METHODS
     ////////////////////////////////////
 
+    public void clearAll()
+    {
+        head = null;
+        return;
+    }
+
     public void insertAtStart(int data)
     {
         Node newnode = new Node(data);
@@ -59,7 +65,7 @@ public class DLL
             System.out.print(curr.data + "->");
             curr = curr.next;
         }
-        System.out.print(curr.data + "->null");
+        System.out.print(curr.data + "->null" + "\n");
     }
 
     public boolean remove(int data)
@@ -146,15 +152,50 @@ public class DLL
         }
     }
 
-    public Node reverse(Node yourNode)
+    public Node reverse()
     {
-        return head;
+        Node before = null;
+        Node curr = head;
+        Node after = curr.next;
 
+        while (curr != null)
+        {
+            after = curr.next;
+            curr.next = before;
+            curr.prev = after;
+            before = curr;
+            curr = after; 
+        }
+        // at the end
+        head = before;
+        return head;
     }
 
-    public void main(String args[])
+    public static void main(String args[])
     {
 
+        DLL dll = new DLL();
+        dll.insertAtEnd(2);
+        dll.insertAtStart(3);
+        int[] arr = {22,33,44,55,66};
+        dll.arrToDll(arr);
+        dll.display();
+        dll.remove(22);
+        dll.remove(66);
+        dll.remove(99); // 99 not in list
+        dll.display();
+        dll.reverse();
+        dll.display();
+        dll.clearAll();
+        dll.sortInsert(0);
+        dll.sortInsert(8);
+        dll.sortInsert(77);
+        dll.sortInsert(4);
+        dll.sortInsert(60);
+        dll.sortInsert(67);
+        dll.display();
+        dll.reverse();
+        dll.display();
     }
     
 }
