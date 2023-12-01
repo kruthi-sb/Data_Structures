@@ -1,3 +1,4 @@
+package LinkedLists;
 public class SLL
 {
     // make an inner class - private static class of Node.
